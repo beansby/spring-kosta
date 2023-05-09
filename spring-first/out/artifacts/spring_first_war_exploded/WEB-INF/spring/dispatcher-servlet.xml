@@ -32,4 +32,16 @@
 <!--        <beans:property name="messageBean" ref="messageBean"/>-->
 <!--    </beans:bean>-->
 
+    <beans:bean id="department" class="controller.di_ex.Department">
+        <beans:constructor-arg value="1"/>
+        <beans:property name="name" value="경영지원"/>
+        <beans:property name="location" value="본사"/>
+    </beans:bean>
+
+    <bean id="employee" class="controller.di_ex.Employee">
+        <beans:constructor-arg value="1" index="0"/>
+        <beans:constructor-arg value="이지은" index="1"/>
+        <beans:property name="department" ref="department"/>
+    </bean>
+
 </beans>
