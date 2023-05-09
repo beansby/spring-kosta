@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:beans="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <mvc:annotation-driven/>
@@ -13,5 +14,22 @@
     </bean>
 
     <context:component-scan base-package="controller"/>
+
+    <beans:bean id="outputter" class="controller.mvc.FileOutputter">
+        <beans:property name="filePath">
+            <beans:value>/Users/ebina/eclipse/spring-work/spring-first/springfile.txt</beans:value>
+        </beans:property>
+    </beans:bean>
+
+    <beans:bean id="messageBean" class="controller.mvc.MessageBean2">
+        <beans:constructor-arg value="sonny"/>
+        <beans:property name="greeting" value="Hello"/>
+        <beans:property name="outputter" ref="outputter"/>
+    </beans:bean>
+<!--    @Autowired 사용-->
+<!--    @Controller 로 homeController 생성된 것을 대체 : id 값 주기-->
+<!--    <beans:bean id="homeController" class="controller.HomeController">-->
+<!--        <beans:property name="messageBean" ref="messageBean"/>-->
+<!--    </beans:bean>-->
 
 </beans>
