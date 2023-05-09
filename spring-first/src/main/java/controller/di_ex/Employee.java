@@ -19,8 +19,7 @@ public class Employee implements EmployeeI {
     }
     @Override
     public String info(){
-        String str = "사원번호:"+id+" 사원명:"+name
+        return "사원번호:"+id+" 사원명:"+name
                 +" 부서명:"+department.getName()+" 부서위치:"+department.getLocation();
-        return str;
     }
 }

@@ -1,6 +1,5 @@
 package controller;
 
-import controller.di_ex.Employee;
 import controller.di_ex.EmployeeI;
 import controller.mvc.MessageBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,6 @@ public class HomeController {
 //    public void setMessageBean(MessageBean messageBean) {
 //        this.messageBean = messageBean;
 //    }
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public  String home(Locale locale, Model model){
         model.addAttribute("say", messageBean.sayHello());  //view : ${say}
