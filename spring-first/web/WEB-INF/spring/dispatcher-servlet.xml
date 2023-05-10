@@ -44,4 +44,12 @@
         <beans:property name="department" ref="department"/>
     </bean>
 
+    <!-- board -->
+    <bean id="boardDAO" class="controller.board.dao.Board">
+        <property name="sqlSession" ref="sqlSession"/> <!-- ref = context-mapper.xml 이름 -->
+    </bean>
+    <bean id="boardService" class="controller.board.service.BoardService">
+        <property name="boardDAO" ref="boardDAO"/>
+    </bean>
+
 </beans>
